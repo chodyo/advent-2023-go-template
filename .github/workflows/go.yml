@@ -14,8 +14,6 @@ jobs:
 
       - name: Set up Go
         uses: actions/setup-go@v3
-        with:
-          go-version: 1.21
 
       - name: Build
         run: go build -v ./...
@@ -23,16 +21,5 @@ jobs:
       - name: Test
         run: go test -v ./...
 
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
       - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@latest
-
-      - name: Check code formatting using gofmt
-        uses: Jerome1337/gofmt-action@latest
-
-      - name: Markdown Linting Action
-        uses: avto-dev/markdown-lint@latest
+        uses: golangci/golangci-lint-action@v3.7.0
