@@ -11,28 +11,25 @@ import (
 )
 
 func Test_Commands_TableTesting(t *testing.T) {
-	testGetters := map[string]map[string]func() map[string]Test{
+	adventTests := map[string]map[string]map[string]Test{
+		// custom test handlers - for when they don't look like the default
 		`day 01`: {
-			`part 1`: getDay01Part1Tests,
-			`part 2`: getDay01Part2Tests,
-		},
-		`day 02`: {
-			`part 1`: getDay02Part1Tests,
-			`part 2`: getDay02Part2Tests,
-		},
-		`day 03`: {
-			`part 1`: getDay03Part1Tests,
-			`part 2`: getDay03Part2Tests,
-		},
-		`day 04`: {
-			`part 1`: getDay04Part1Tests,
-			`part 2`: getDay04Part2Tests,
+			`part 1`: getDay01Part1Tests(),
+			`part 2`: getDay01Part2Tests(),
 		},
 	}
 
-	for day, getParts := range testGetters {
-		for part, getTestCases := range getParts {
-			for name, testCase := range getTestCases() {
+	for _, day := range []int{2, 3, 4} {
+		// default-looking test handlers
+		adventTests[fmt.Sprintf(`day %02d`, day)] = map[string]map[string]Test{
+			`part 1`: getDefaultDayXXPartYTests(day, 1),
+			`part 2`: getDefaultDayXXPartYTests(day, 2),
+		}
+	}
+
+	for day, getParts := range adventTests {
+		for part, testCases := range getParts {
+			for name, testCase := range testCases {
 				tc := testCase
 				t.Run(fmt.Sprintf("%s %s %s", day, part, name), func(t *testing.T) {
 					t.Parallel()
@@ -92,119 +89,29 @@ func getDay01Part2Tests() map[string]Test {
 	return tests
 }
 
-func getDay02Part1Tests() map[string]Test {
+func getDefaultDayXXPartYTests(day, part int) map[string]Test {
 	tests := map[string]Test{}
 	expectations := map[string]int{
-		`02_input_sample`: adventAnswers[`day 02 part 1 sample`],
-		`02_input_full`:   adventAnswers[`day 02 part 1 full`],
+		fmt.Sprintf(`%02d_input_sample`, day): adventAnswers[fmt.Sprintf(`day %02d part %d sample`, day, part)],
+		fmt.Sprintf(`%02d_input_full`, day):   adventAnswers[fmt.Sprintf(`day %02d part %d full`, day, part)],
 	}
 	for in, out := range expectations {
+		var command AdventCommand
+		switch day {
+		case 1:
+			command = Day01Command{DefaultAdventCommand: makeDefaultAdventCommand(in), Part2: part == 2}
+		case 2:
+			command = Day02Command{DefaultAdventCommand: makeDefaultAdventCommand(in), Part2: part == 2}
+		case 3:
+			command = Day03Command{DefaultAdventCommand: makeDefaultAdventCommand(in), Part2: part == 2}
+		case 4:
+			command = Day04Command{DefaultAdventCommand: makeDefaultAdventCommand(in), Part2: part == 2}
+		}
 		tests["file "+in] = Test{
-			command: Day02Command{
-				DefaultAdventCommand: makeDefaultAdventCommand(in),
-				Part2:                false,
-			},
+			command:  command,
 			expected: out,
 		}
 	}
-	return tests
-}
-
-func getDay02Part2Tests() map[string]Test {
-	tests := map[string]Test{}
-	expectations := map[string]int{
-		`02_input_sample`: adventAnswers[`day 02 part 2 sample`],
-		`02_input_full`:   adventAnswers[`day 02 part 2 full`],
-	}
-	for in, out := range expectations {
-		tests["file "+in] = Test{
-			command: Day02Command{
-				DefaultAdventCommand: makeDefaultAdventCommand(in),
-				Part2:                true,
-			},
-			expected: out,
-		}
-	}
-	return tests
-}
-
-func getDay03Part1Tests() map[string]Test {
-	tests := map[string]Test{}
-
-	expectations := map[string]int{
-		`03_input_sample`: adventAnswers[`day 03 part 1 sample`],
-		`03_input_full`:   adventAnswers[`day 03 part 1 full`],
-	}
-	for in, out := range expectations {
-		tests["file "+in] = Test{
-			command: Day03Command{
-				DefaultAdventCommand: makeDefaultAdventCommand(in),
-				Part2:                false,
-			},
-			expected: out,
-		}
-	}
-
-	return tests
-}
-
-func getDay03Part2Tests() map[string]Test {
-	tests := map[string]Test{}
-
-	expectations := map[string]int{
-		`03_input_sample`: adventAnswers[`day 03 part 2 sample`],
-		`03_input_full`:   adventAnswers[`day 03 part 2 full`],
-	}
-	for in, out := range expectations {
-		tests["file "+in] = Test{
-			command: Day03Command{
-				DefaultAdventCommand: makeDefaultAdventCommand(in),
-				Part2:                true,
-			},
-			expected: out,
-		}
-	}
-
-	return tests
-}
-
-func getDay04Part1Tests() map[string]Test {
-	tests := map[string]Test{}
-
-	expectations := map[string]int{
-		`04_input_sample`: adventAnswers[`day 04 part 1 sample`],
-		`04_input_full`:   adventAnswers[`day 04 part 1 full`],
-	}
-	for in, out := range expectations {
-		tests["file "+in] = Test{
-			command: Day04Command{
-				DefaultAdventCommand: makeDefaultAdventCommand(in),
-				Part2:                false,
-			},
-			expected: out,
-		}
-	}
-
-	return tests
-}
-
-func getDay04Part2Tests() map[string]Test {
-	tests := map[string]Test{}
-
-	expectations := map[string]int{
-		`04_input_sample`: adventAnswers[`day 04 part 2 sample`],
-		`04_input_full`:   adventAnswers[`day 04 part 2 full`],
-	}
-	for in, out := range expectations {
-		tests["file "+in] = Test{
-			command: Day04Command{
-				DefaultAdventCommand: makeDefaultAdventCommand(in),
-				Part2:                true,
-			},
-			expected: out,
-		}
-	}
-
 	return tests
 }
 
