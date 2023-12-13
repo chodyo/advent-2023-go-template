@@ -28,10 +28,6 @@ func Test_Commands_TableTesting(t *testing.T) {
 			`part 1`: getDay04Part1Tests,
 			`part 2`: getDay04Part2Tests,
 		},
-		`day 05`: {
-			`part 1`: getDay05Part1Tests,
-			`part 2`: getDay05Part2Tests,
-		},
 	}
 
 	for day, getParts := range testGetters {
@@ -210,46 +206,6 @@ func getDay04Part2Tests() map[string]Test {
 	for in, out := range expectations {
 		tests["file "+in] = Test{
 			command: Day04Command{
-				DefaultAdventCommand: makeDefaultAdventCommand(in),
-				Part2:                true,
-			},
-			expected: out,
-		}
-	}
-
-	return tests
-}
-
-func getDay05Part1Tests() map[string]Test {
-	tests := map[string]Test{}
-
-	expectations := map[string]int{
-		`04_input_sample`: 35,
-		`04_input_full`:   -100,
-	}
-	for in, out := range expectations {
-		tests["file "+in] = Test{
-			command: Day05Command{
-				DefaultAdventCommand: makeDefaultAdventCommand(in),
-				Part2:                false,
-			},
-			expected: out,
-		}
-	}
-
-	return tests
-}
-
-func getDay05Part2Tests() map[string]Test {
-	tests := map[string]Test{}
-
-	expectations := map[string]int{
-		`04_input_sample`: -100,
-		`04_input_full`:   -100,
-	}
-	for in, out := range expectations {
-		tests["file "+in] = Test{
-			command: Day05Command{
 				DefaultAdventCommand: makeDefaultAdventCommand(in),
 				Part2:                true,
 			},

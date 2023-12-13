@@ -5,8 +5,9 @@
 ## Setup Instructions
 
 1. Create a new repo from this template.
-2. Uncomment the "expected" test values in `internal/commands/<commandName>/<commandName>_test.go` and remove the "expect 0" lines.
-3. Implement your algorithm in `internal/commands/<commandName>/<commandName>.go`.
+2. Implement your algorithms for each day in `internal/commands/<dayXX>.go`.
+   1. Each day has 2 parts, you will replace the code in functions named `dayXXpartY`.
+3. Test your implementation using `go test -v ./...`
 
 ## Running
 
