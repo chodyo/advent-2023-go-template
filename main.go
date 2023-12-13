@@ -6,7 +6,7 @@ import (
 
 	"github.com/jessevdk/go-flags"
 
-	"github.com/chodyo/advent-2023/internal/commands"
+	"github.com/chodyo/advent-2023-go-template/internal/commands"
 )
 
 type Commands struct {

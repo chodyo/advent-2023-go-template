@@ -1,4 +1,4 @@
-module github.com/chodyo/advent-2023
+module github.com/chodyo/advent-2023-go-template
 
 go 1.21.4
 

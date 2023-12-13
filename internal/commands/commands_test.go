@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/chodyo/advent-2023/internal/input"
+	"github.com/chodyo/advent-2023-go-template/internal/input"
 	"github.com/google/go-cmp/cmp"
 )
 

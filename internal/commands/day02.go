@@ -3,7 +3,7 @@ package commands
 import (
 	"log"
 
-	"github.com/chodyo/advent-2023/internal/input"
+	"github.com/chodyo/advent-2023-go-template/internal/input"
 )
 
 type Day02Command struct {
