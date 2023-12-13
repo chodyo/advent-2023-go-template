@@ -15,7 +15,7 @@ func LoadInput(filename string) ([]string, error) {
 	if filename == "" {
 		return loadInputFromStdIn()
 	}
-	return loadInputFromFile(filename)
+	return LoadInputFromFile(filename)
 }
 
 func loadInputFromStdIn() (lines []string, err error) {
@@ -35,7 +35,7 @@ func loadInputFromStdIn() (lines []string, err error) {
 	return lines, nil
 }
 
-func loadInputFromFile(filename string) ([]string, error) {
+func LoadInputFromFile(filename string) ([]string, error) {
 	file, err := os.Open(filename)
 	if err != nil {
 		return nil, err
