@@ -56,11 +56,10 @@ type Test struct {
 
 func getDay01Part1Tests() map[string]Test {
 	tests := map[string]Test{}
-
 	expectations := map[string]int{
-		`01-1_input_sample`: 142,
-		`01-2_input_sample`: 209,
-		`01_input_full`:     56042,
+		`01-1_input_sample`: adventAnswers[`day 01 part 1 sample 1`],
+		`01-2_input_sample`: adventAnswers[`day 01 part 1 sample 2`],
+		`01_input_full`:     adventAnswers[`day 01 part 1 full`],
 	}
 	for in, out := range expectations {
 		tests["file "+in] = Test{
@@ -71,17 +70,15 @@ func getDay01Part1Tests() map[string]Test {
 			expected: out,
 		}
 	}
-
 	return tests
 }
 
 func getDay01Part2Tests() map[string]Test {
 	tests := map[string]Test{}
-
 	expectations := map[string]int{
-		`01-1_input_sample`: 142,
-		`01-2_input_sample`: 281,
-		`01_input_full`:     55358,
+		`01-1_input_sample`: adventAnswers[`day 01 part 2 sample 1`],
+		`01-2_input_sample`: adventAnswers[`day 01 part 2 sample 2`],
+		`01_input_full`:     adventAnswers[`day 01 part 2 full`],
 	}
 	for in, out := range expectations {
 		tests["file "+in] = Test{
@@ -92,16 +89,14 @@ func getDay01Part2Tests() map[string]Test {
 			expected: out,
 		}
 	}
-
 	return tests
 }
 
 func getDay02Part1Tests() map[string]Test {
 	tests := map[string]Test{}
-
 	expectations := map[string]int{
-		`02_input_sample`: 8,
-		`02_input_full`:   2771,
+		`02_input_sample`: adventAnswers[`day 02 part 1 sample`],
+		`02_input_full`:   adventAnswers[`day 02 part 1 full`],
 	}
 	for in, out := range expectations {
 		tests["file "+in] = Test{
@@ -112,16 +107,14 @@ func getDay02Part1Tests() map[string]Test {
 			expected: out,
 		}
 	}
-
 	return tests
 }
 
 func getDay02Part2Tests() map[string]Test {
 	tests := map[string]Test{}
-
 	expectations := map[string]int{
-		`02_input_sample`: 2286,
-		`02_input_full`:   70924,
+		`02_input_sample`: adventAnswers[`day 02 part 2 sample`],
+		`02_input_full`:   adventAnswers[`day 02 part 2 full`],
 	}
 	for in, out := range expectations {
 		tests["file "+in] = Test{
@@ -132,7 +125,6 @@ func getDay02Part2Tests() map[string]Test {
 			expected: out,
 		}
 	}
-
 	return tests
 }
 
@@ -140,8 +132,8 @@ func getDay03Part1Tests() map[string]Test {
 	tests := map[string]Test{}
 
 	expectations := map[string]int{
-		`03_input_sample`: 4361,
-		`03_input_full`:   553825,
+		`03_input_sample`: adventAnswers[`day 03 part 1 sample`],
+		`03_input_full`:   adventAnswers[`day 03 part 1 full`],
 	}
 	for in, out := range expectations {
 		tests["file "+in] = Test{
@@ -160,8 +152,8 @@ func getDay03Part2Tests() map[string]Test {
 	tests := map[string]Test{}
 
 	expectations := map[string]int{
-		`03_input_sample`: 467835,
-		`03_input_full`:   93994191,
+		`03_input_sample`: adventAnswers[`day 03 part 2 sample`],
+		`03_input_full`:   adventAnswers[`day 03 part 2 full`],
 	}
 	for in, out := range expectations {
 		tests["file "+in] = Test{
@@ -180,8 +172,8 @@ func getDay04Part1Tests() map[string]Test {
 	tests := map[string]Test{}
 
 	expectations := map[string]int{
-		`04_input_sample`: 13,
-		`04_input_full`:   18519,
+		`04_input_sample`: adventAnswers[`day 04 part 1 sample`],
+		`04_input_full`:   adventAnswers[`day 04 part 1 full`],
 	}
 	for in, out := range expectations {
 		tests["file "+in] = Test{
@@ -200,8 +192,8 @@ func getDay04Part2Tests() map[string]Test {
 	tests := map[string]Test{}
 
 	expectations := map[string]int{
-		`04_input_sample`: 30,
-		`04_input_full`:   11787590,
+		`04_input_sample`: adventAnswers[`day 04 part 2 sample`],
+		`04_input_full`:   adventAnswers[`day 04 part 2 full`],
 	}
 	for in, out := range expectations {
 		tests["file "+in] = Test{
