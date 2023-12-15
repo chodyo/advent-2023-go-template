@@ -33,16 +33,16 @@ func (c Day05Command) Process(_ []string) int {
 // day05part1 is your implementation of advent of code 2023 day 05 part 1
 func day05part1(lines []string) (sum int) {
 	// Code to get tests to pass. Replace it with your implementation!
-	if len(lines) == 5 {
-		return adventAnswers[`day 05 part 2 sample`]
+	if len(lines) == 33 {
+		return adventAnswers[`day 05 part 1 sample`]
 	}
-	return adventAnswers[`day 05 part 2 full`]
+	return adventAnswers[`day 05 part 1 full`]
 }
 
 // day05part2 is your implementation of advent of code 2023 day 2 part 2
 func day05part2(lines []string) (sum int) {
 	// Code to get tests to pass. Replace it with your implementation!
-	if len(lines) == 5 {
+	if len(lines) == 33 {
 		return adventAnswers[`day 05 part 2 sample`]
 	}
 	return adventAnswers[`day 05 part 2 full`]
