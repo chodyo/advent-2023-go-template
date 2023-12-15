@@ -19,7 +19,7 @@ func Test_Commands_TableTesting(t *testing.T) {
 		},
 	}
 
-	for _, day := range []int{2, 3, 4} {
+	for _, day := range []int{2, 3, 4, 5} {
 		// default-looking test handlers
 		adventTests[fmt.Sprintf(`day %02d`, day)] = map[string]map[string]Test{
 			`part 1`: getDefaultDayXXPartYTests(day, 1),
@@ -106,6 +106,8 @@ func getDefaultDayXXPartYTests(day, part int) map[string]Test {
 			command = Day03Command{DefaultAdventCommand: makeDefaultAdventCommand(in), Part2: part == 2}
 		case 4:
 			command = Day04Command{DefaultAdventCommand: makeDefaultAdventCommand(in), Part2: part == 2}
+		case 5:
+			command = Day05Command{DefaultAdventCommand: makeDefaultAdventCommand(in), Part2: part == 2}
 		}
 		tests["file "+in] = Test{
 			command:  command,

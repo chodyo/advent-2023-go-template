@@ -26,5 +26,10 @@ func init() {
 		`day 04 part 1 full`:   18519,
 		`day 04 part 2 sample`: 30,
 		`day 04 part 2 full`:   11787590,
+
+		`day 05 part 1 sample`: 35,
+		`day 05 part 1 full`:   836040384,
+		`day 05 part 2 sample`: 46,
+		`day 05 part 2 full`:   10834440,
 	}
 }

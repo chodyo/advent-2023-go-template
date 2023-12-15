@@ -14,7 +14,7 @@ type Commands struct {
 	commands.Day02Command `command:"day02" description:"Advent 2023 Day 2 - Cube Conundrum"`
 	commands.Day03Command `command:"day03" description:"Advent 2023 Day 3 - Gear Ratios"`
 	commands.Day04Command `command:"day04" description:"Advent 2023 Day 4 - Scratchcards"`
-	commands.Day05Command `command:"day04" description:"Advent 2023 Day 5 - If You Give A Seed A Fertilizer"`
+	commands.Day05Command `command:"day05" description:"Advent 2023 Day 5 - If You Give A Seed A Fertilizer"`
 }
 
 // Commands are executed in `ParseArgs`
